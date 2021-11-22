@@ -20,7 +20,7 @@ async fn main() -> Result<()> {
     let matches = App::new("Rusted Skeevatron")
                         .version("0.1")
                         .author("Giuseppe C. <giuseppe@ktz.one>")
-                        .about("Downloads UI addons for TESO. 
+                        .about("Downloads UI addons for TESO.
                                 Based on skeevatron.sh
                                 (https://github.com/gangelop/skeevatron/blob/master/skeevatron.sh)
                                 by George Angelopoulos <george@usermod.net>")
@@ -72,7 +72,7 @@ async fn main() -> Result<()> {
             } else {
                 panic!("add an addonListFile and addonDir to {}", conf_path.to_str().unwrap())
             }
-        }, 
+        },
     };
     let addon_dest = match matches.value_of("DEST") {
         Some(arg) => {
@@ -117,8 +117,8 @@ async fn main() -> Result<()> {
 
 // read $XDG_CONFIG/mudcrab/config.toml and return a HashMap of the config
 // TODO: make it more OS-agnostic
-// TODO: should probably be its own file like in 
-// https://github.com/mehcode/config-rs/tree/master/examples/hierarchical-env 
+// TODO: should probably be its own file like in
+// https://github.com/mehcode/config-rs/tree/master/examples/hierarchical-env
 fn read_conf(conf_path: &PathBuf) -> HashMap<String, String> {
     let mut settings = config::Config::default();
 
@@ -134,7 +134,7 @@ async fn unzip(zipname: &str, unzip_path: &str) -> Result<()> {
     let mut archive = zip::ZipArchive::new(zip).unwrap();
     let path = Path::new(&unzip_path);
     archive.extract(path).unwrap();
-    
+
     Ok(())
 }
 
@@ -143,7 +143,7 @@ async fn download_zip(number: &str, client: &Client) -> Result<String> {
     let res = client.get(url).send().await?;
     let zip_dest = format!("/tmp/download{}.zip", number);
     let path = Path::new(&zip_dest);
-    
+
     let mut file = match File::create(&path) {
         Err(why) => panic!("couldn't create file {}", why),
         Ok(file) => file,
