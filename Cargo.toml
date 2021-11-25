@@ -1,21 +1,18 @@
-cargo-features = ["edition2021"]
-
 [package]
+edition = "2021"
 name = "mudcrab"
 version = "0.1.0"
-edition = "2021"
-
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = "2.33.3"
+clap = {version = "2.33.3", features = ["yaml"]}
 config = "0.11.0"
 error-chain = "0.12.4"
 reqwest = "0.11.6"
 scraper = "0.12.0"
-tokio = { version = "1", features = ["full"] }
+tempfile = "*"
 xdg = "2.4.0"
 zip = "0.5.13"
 
-[features]
+[dependencies.tokio]
+features = ["full"]
+version = "1"

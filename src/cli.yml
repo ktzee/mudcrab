@@ -1,0 +1,17 @@
+name: mudcrab
+version: "0.1"
+author: Giuseppe C. <giuseppe@ktz.one>
+about: "Downloads UI addons for TESO. Based on skeevatron.sh (https://github.com/gangelop/skeevatron/blob/master/skeevatron.sh) by George Angelopoulos <george@usermod.net>"
+args:
+  - FILE:
+      help: "The addon list file. This overrides what's configured in your conf file."
+      required: false
+      index: 1
+      short: l
+      long: list
+  - DEST:
+      help: "The destination addon directory. This overrides what's configured in your conf file."
+      required: false
+      index: 2
+      short: d
+      long: dest
