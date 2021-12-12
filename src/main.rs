@@ -3,7 +3,6 @@ extern crate clap;
 use clap::App;
 use error_chain::error_chain;
 use reqwest::Client;
-use std::collections::HashMap;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Write};
 use std::path::{Path, PathBuf};
@@ -25,8 +24,9 @@ struct Config {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let yaml = load_yaml!("cli.yml");
-    let matches = App::from_yaml(yaml).get_matches();
+    // TODO: bring this back if we want command line options
+    // let yaml = load_yaml!("cli.yml");
+    // let matches = App::from_yaml(yaml).get_matches();
 
     // Create config file if it doesn't exist
     // TODO: should be its own function?
